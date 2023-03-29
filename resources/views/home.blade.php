@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Activación de cuenta necesaria.</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    @if(Auth::user()->activated === 0)
+                        Para acceder a la página principal primero un administrador debe activar su cuenta. 
+                    @else
+                        <a href="user">Página principal</a>
+                    @endif
                 </div>
             </div>
         </div>
