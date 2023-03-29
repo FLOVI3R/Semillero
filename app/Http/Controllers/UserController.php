@@ -27,7 +27,7 @@ class UserController extends Controller
     public function activateUser($id)
     {
         $user = User::find($id);
-        $user->actived = 1;
+        $user->activated = 1;
         $user->update();
         return back();
     }
@@ -35,7 +35,7 @@ class UserController extends Controller
     public function deactivateUser($id)
     {
         $user = User::find($id);
-        $user->actived = 0;
+        $user->activated = 0;
         $user->update();
         return back();
     }
@@ -43,7 +43,7 @@ class UserController extends Controller
     public function updateUser($id)
     {
         $user = User::find($id);
-        return view('admin.admin_updateUser')->with('user', $user);
+        return view('admin.admin_user_update')->with('user', $user);
     }
 
     public function editUser($id, Request $request)

@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('deactivateUser{id}', 'UserController@deactivateUser')->name('deactivateUser');
     Route::post('deleteUser{id}', 'UserController@deleteUser')->name('deleteUser');
     Route::get('updateUser{id}', 'UserController@updateUser')->name('updateUser');
+    Route::post('editUser{id}', 'UserController@editUser')->name('editUser');
 
     Route::get('user', 'UserController@index')->name('user');
 });
