@@ -18,7 +18,8 @@ class CreateOpinionsTable extends Migration
             $table->integer('plague_id');
             $table->string('headline');
             $table->string('description');
-            $table->integer('num_likes');
+            $table->integer('num_likes')->default(0);
+            $table->integer('deleted')->default(0);
             $table->timestamps();
         });
     }

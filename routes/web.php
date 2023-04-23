@@ -24,6 +24,13 @@ Route::middleware(['auth', 'isAdmin', 'verified'])->group(function () {
     Route::post('deleteUser{id}', 'AdminController@deleteUser')->name('deleteUser');
     Route::get('updateUser{id}', 'AdminController@updateUser')->name('updateUser');
     Route::post('editUser{id}', 'AdminController@editUser')->name('editUser');
+
+    Route::get('opinions', 'AdminController@opinions')->name('opinions');
+    Route::get('createOpinionForm', 'AdminController@createOpinionForm')->name('createOpinionForm');
+    Route::post('createNewOpinion', 'AdminController@createNewOpinion')->name('createNewOpinion');
+    Route::get('updateOpinion{id}', 'AdminController@updateOpinion')->name('updateOpinion');
+    Route::post('editOpinion{id}', 'AdminController@editOpinion')->name('editOpinion');
+    Route::post('deleteOpinion{id}', 'AdminController@deleteOpinion')->name('deleteOpinion');
 });
 
 Route::middleware(['auth', 'verified', 'actived'])->group(function () {

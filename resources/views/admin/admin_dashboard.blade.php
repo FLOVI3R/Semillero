@@ -7,7 +7,8 @@
 @stop
 
 @section('content')
-    <div class="card-body p-0">
+<a href="opinions">OPNIONES</a>    
+<div class="card-body p-0">
         <table class="table">
             <thead>
                 <tr>
