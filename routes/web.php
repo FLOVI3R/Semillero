@@ -35,6 +35,8 @@ Route::middleware(['auth', 'isAdmin', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'actived'])->group(function () {
     Route::get('user', 'UserController@index')->name('user');
+    Route::post('likeOpinion{id}', 'UserController@likeOpinion')->name('likeOpinion');
+    Route::get('generatePDF', 'UserController@generatePDF')->name('generatePDF');
 });
 
 Route::get('/home', 'HomeController@index')->middleware('auth', 'verified');
