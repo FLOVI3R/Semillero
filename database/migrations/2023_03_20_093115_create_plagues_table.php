@@ -17,6 +17,7 @@ class CreatePlaguesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('img');
+            $table->integer('deleted');
             $table->timestamps();
         });
     }

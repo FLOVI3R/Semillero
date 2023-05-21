@@ -1,34 +1,35 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Opinión')
+@section('title', 'Editar Opinión')
 
 @section('content_header')
-    <h1>CREAR OPINIÓN</h1>
+    <h1>EDITAR OPINIÓN</h1>
 @stop
 
 @section('content')
-<form action="{{ route('OpinionApi') }}" method="POST">
+    <form action="{{ route('OpinionApi', $opinion->id) }}" method="PUT">
         @csrf
         <div class="form-group">
-            <h2>Plaga: </h1>
-                <select name="plague_id" class="form-control">
-                @foreach($plagues as $plague)
-                    <option value = "{{ $plague->id }}"> {{ $plague->name }}
-                @endforeach
-                </select>
-        </div>
-        <div class="form-group">
             <h2>Título: </h1>
-            <input type="text" name="headline" class="form-control">
+            <input type="text" name="headline" value="{{ $opinion->headline }}" class="form-control">
         </div>
         <div class="form-group">
             <h2>Descripción: </h1>
-            <input type="text" name="description" class="form-control">
+            <input type="text" name="description" value="{{ $opinion->description }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <h2>Num. Likes: </h1>
+            <input type="text" name="num_likes" value="{{ $opinion->num_likes }}" class="form-control">
         </div>
         <div>
-            <button type="submit" class="btn-outline-primary btn-sm show_confirm">Crear opinión</button>
+            <button type="submit" class="btn-outline-primary btn-sm show_confirm">Editar</button>
         </div>
     </form>
+    
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
@@ -40,8 +41,8 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `Confirmación para crear opinión`,
-              text: "Va a crear una opinión y añadirla a la base de datos. ¿Está seguro de querer crear esta opinión?",
+              title: `Confirmación para editar opinión`,
+              text: "Va a editar una opinión de la base de datos. ¿Está seguro de querer editar esta opinión?",
               icon: "warning",
               buttons: true,
               dangerMode: false,
